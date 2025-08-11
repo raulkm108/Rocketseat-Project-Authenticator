@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 from database import db
 from models.user import User
 from flask_login import LoginManager
@@ -13,6 +13,11 @@ login_manager = LoginManager()
 db.init_app(app)
 login_manager.init_app(app)
 
+@app.route("/login", methods=["POST"])
+def login ():
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
 
 @app.route("/hello-world", methods=["GET"])
 def hello_world ():
