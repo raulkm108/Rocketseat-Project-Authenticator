@@ -22,7 +22,7 @@ def login ():
     if username and password:
         pass
 
-    return jsonify({"message": "Invalid Credentials"})
+    return jsonify({"message": "Invalid Credentials"}), 400
 
 @app.route("/hello-world", methods=["GET"])
 def hello_world ():
