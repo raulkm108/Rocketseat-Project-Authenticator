@@ -19,6 +19,11 @@ def login ():
     username = data.get("username")
     password = data.get("password")
 
+    if username and password:
+        pass
+
+    return jsonify({"message": "Invalid Credentials"})
+
 @app.route("/hello-world", methods=["GET"])
 def hello_world ():
     return "Hello world"
