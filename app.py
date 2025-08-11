@@ -21,7 +21,9 @@ def login ():
 
     if username and password:
         user = User.query.filter_by(username=username).first()
-        return jsonify({"message": "Credentials succesfully stored"})
+        
+        if user and user.password == password:
+            return jsonify({"message": "Credentials succesfully stored"})
 
     return jsonify({"message": "Invalid Credentials"}), 400
 
