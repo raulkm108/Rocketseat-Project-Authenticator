@@ -36,6 +36,8 @@ def login ():
 
     return jsonify({"message": "Invalid Credentials"}), 400
 
+@app.route('/logout', methods=['GET'])
+
 @app.route("/hello-world", methods=["GET"])
 def hello_world ():
     return "Hello world"
