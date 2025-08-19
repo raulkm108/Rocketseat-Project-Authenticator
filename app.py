@@ -50,7 +50,8 @@ def create_user():
     password = data.get("password")
 
     if username and password:
-        pass
+
+        return jsonify({"message": "User successfully registered"})
 
 
     return jsonify({"message": "Invalid data"}), 401
