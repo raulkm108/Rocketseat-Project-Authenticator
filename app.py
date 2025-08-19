@@ -43,6 +43,11 @@ def logout():
     logout_user()
     return jsonify({"message":"You have successfully logged out" })
 
+@app.route('/user', methods=['POST'])
+def create_user():
+    return
+
+
 @app.route("/hello-world", methods=["GET"])
 def hello_world ():
     return "Hello world"
