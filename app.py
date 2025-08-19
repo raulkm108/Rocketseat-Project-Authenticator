@@ -51,10 +51,11 @@ def create_user():
 
     if username and password:
 
+
         return jsonify({"message": "User successfully registered"})
 
 
-    return jsonify({"message": "Invalid data"}), 401
+    return jsonify({"message": "Invalid data"}), 400
 
 
 @app.route("/hello-world", methods=["GET"])
