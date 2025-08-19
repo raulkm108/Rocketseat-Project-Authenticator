@@ -49,8 +49,11 @@ def create_user():
     username = data.get("username")
     password = data.get("password")
 
-    
-    return
+    if username and password:
+        pass
+
+
+    return jsonify({"message": "Invalid data"}), 401
 
 
 @app.route("/hello-world", methods=["GET"])
