@@ -87,6 +87,10 @@ def update_user(id_user):
 def delete_user(id_user):
     user = User.query.get(id_user)
 
+    if id_user == current_user.id:
+        return jsonify ({"message": "You are not allowed to delete this user"})
+
+
     if user:
         db.session.delete(user)
         db.session.commit()
