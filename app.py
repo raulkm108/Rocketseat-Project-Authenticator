@@ -71,9 +71,11 @@ def read_user(id_user):
 @app.route('/user/<int:id_user>', methods=["PUT"])
 @login_required
 def update_user(id_user):
+    data = request.json
     user = User.query.get(id_user)
 
-    if user:
+    if user and data.get("password"):
+        user.pasword = data.get("password")
         return jsonify ({"message": f"User {id_user} was successfully updated!"})
     
     return jsonify({"message": "User not found!"}), 404 
