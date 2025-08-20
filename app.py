@@ -59,6 +59,7 @@ def create_user():
     return jsonify({"message": "Invalid data"}), 400
 
 @app.route('/user/<int:id_user>', methods=["GET"])
+@login_required
 def read_user(id_user):
     user = User.query.get(id_user)
 
