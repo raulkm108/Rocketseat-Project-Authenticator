@@ -88,7 +88,7 @@ def delete_user(id_user):
     user = User.query.get(id_user)
 
     if id_user == current_user.id:
-        return jsonify ({"message": "You are not allowed to delete this user"})
+        return jsonify ({"message": "You are not allowed to delete this user"}), 403
 
 
     if user:
