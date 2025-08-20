@@ -88,6 +88,8 @@ def delete_user(id_user):
     user = User.query.get(id_user)
 
     if user:
+        db.session.delete(user)
+        db.session.commit()
         return jsonify ({"message": f"User {id_user} was successfuly deleted"})
     
     return jsonify ({"message": "User not found!"}), 404
