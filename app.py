@@ -73,6 +73,11 @@ def read_user(id_user):
 def update_user(id_user):
     user = User.query.get(id_user)
 
+    if user:
+        return jsonify ({"message": f"User {id_user} was successfully updated!"})
+    
+    return jsonify({"message": "User not found!"}), 404 
+
 
 @app.route("/hello-world", methods=["GET"])
 def hello_world ():
