@@ -76,6 +76,8 @@ def update_user(id_user):
 
     if user and data.get("password"):
         user.pasword = data.get("password")
+        db.session.commit()
+
         return jsonify ({"message": f"User {id_user} was successfully updated!"})
     
     return jsonify({"message": "User not found!"}), 404 
