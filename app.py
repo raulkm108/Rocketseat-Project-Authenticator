@@ -90,7 +90,7 @@ def update_user(id_user):
 def delete_user(id_user):
     user = User.query.get(id_user)
 
-    if id_user == current_user.id:
+    if id_user == current_user.id and current_user.role != 'admin':
         return jsonify ({"message": "You are not allowed to delete this user"}), 403
 
 
