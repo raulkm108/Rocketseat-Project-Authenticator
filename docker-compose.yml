@@ -1,8 +1,9 @@
+version: '3'
 services:
   db:
-    image: mysql:lastest
+    image: mysql:latest
     restart: always
-    enviroment:
+    environment:
       MYSQL_USER: 'admin'
       MYSQL_PASSWORD: 'admin123'
       MYSQL_DATABASE: 'flask-crud'
@@ -10,6 +11,7 @@ services:
     ports:
       - "3306:3306"
     expose:
+      # Opens port 3306 on the container
       - '3306'
     volumes:
-      - \Users\NoteLenovo\Desktop\Rocketseat\mysql:\var\lib\mysql
+      - /Users/NoteLenovo/Rocketseat/mysql:/var/lib/mysql
