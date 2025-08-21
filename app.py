@@ -78,7 +78,7 @@ def update_user(id_user):
         return jsonify({"message": "Operation not allowed!"}), 403
 
     if user and data.get("password"):
-        user.pasword = data.get("password")
+        user.password = data.get("password")
         db.session.commit()
 
         return jsonify ({"message": f"User {id_user} was successfully updated!"})
