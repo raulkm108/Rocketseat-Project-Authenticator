@@ -74,6 +74,9 @@ def update_user(id_user):
     data = request.json
     user = User.query.get(id_user)
 
+    if id_user != current_user.id and current_user.role == "user":
+        return jsonify({"message": "Operation not allowed!"}), 403
+
     if user and data.get("password"):
         user.pasword = data.get("password")
         db.session.commit()
