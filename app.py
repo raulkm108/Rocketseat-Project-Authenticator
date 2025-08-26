@@ -50,6 +50,7 @@ def create_user():
     password = data.get("password")
 
     if username and password:
+        hashed_password = bcrypt.hashpw(str.encode(password), bcrypt.gensalt())
         user = User(username=username, password=password, role='user')
         db.session.add(user)
         db.session.commit()
