@@ -30,7 +30,7 @@ def login ():
     
         user = User.query.filter_by(username=username).first()
          
-        if user and user.password == password:
+        if user and bcrypt.checkpw(str.encode(password), str.encode(user.password)):
             login_user(user)
             print(current_user.is_authenticated)
             return jsonify({"message": "You have successfully logged in"})
